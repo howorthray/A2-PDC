@@ -8,9 +8,9 @@ public final class DBManager {
     
     //Main manager class for connecting to the database
 
-    private static final String USER_NAME = "pdc"; //your DB username
-    private static final String PASSWORD = "pdc"; //your DB password
-    private static final String URL = "jdbc:derby:QuizGameDB; create=true";  //url of the DB host
+    private static final String USER_NAME = "pdc";
+    private static final String PASSWORD = "pdc";
+    private static final String URL = "jdbc:derby:QuizGameDB; create=true";
 
     Connection conn;
 
