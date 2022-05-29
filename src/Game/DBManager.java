@@ -7,6 +7,7 @@ import java.sql.SQLException;
 public final class DBManager {
     
     //Main manager class for connecting to the database
+    //hghuvhfhdub
 
     private static final String USER_NAME = "pdc";
     private static final String PASSWORD = "pdc";
