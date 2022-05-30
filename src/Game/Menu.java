@@ -45,6 +45,11 @@ public class Menu extends javax.swing.JFrame {
 
         HelpButton.setBackground(new java.awt.Color(204, 204, 204));
         HelpButton.setText("Help");
+        HelpButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                HelpButtonActionPerformed(evt);
+            }
+        });
 
         QuitButton.setBackground(new java.awt.Color(204, 204, 204));
         QuitButton.setText("Quit");
@@ -97,6 +102,10 @@ public class Menu extends javax.swing.JFrame {
     private void QuitButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_QuitButtonActionPerformed
         
     }//GEN-LAST:event_QuitButtonActionPerformed
+
+    private void HelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpButtonActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_HelpButtonActionPerformed
 
     /**
      * @param args the command line arguments
