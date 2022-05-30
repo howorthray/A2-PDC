@@ -1,5 +1,11 @@
 package Game;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.ResultSet;
+import java.sql.Statement;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author User
@@ -22,7 +28,7 @@ public class Login extends javax.swing.JFrame {
         usernameField = new javax.swing.JTextField();
         passwordLabel = new javax.swing.JLabel();
         showpwCheckBox = new javax.swing.JCheckBox();
-        jButton1 = new javax.swing.JButton();
+        loginButton = new javax.swing.JButton();
         backButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         passwordField = new javax.swing.JPasswordField();
@@ -46,7 +52,12 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
-        jButton1.setText("Login");
+        loginButton.setText("Login");
+        loginButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                loginButtonActionPerformed(evt);
+            }
+        });
 
         backButton.setText("Back");
         backButton.addActionListener(new java.awt.event.ActionListener() {
@@ -72,7 +83,7 @@ public class Login extends javax.swing.JFrame {
                 .addGap(67, 67, 67)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(loginButton)
                         .addGap(18, 18, 18)
                         .addComponent(backButton))
                     .addGroup(layout.createSequentialGroup()
@@ -105,7 +116,7 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(loginButton)
                     .addComponent(backButton))
                 .addContainerGap(70, Short.MAX_VALUE))
         );
@@ -128,6 +139,31 @@ public class Login extends javax.swing.JFrame {
     private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_passwordFieldActionPerformed
+
+    private void loginButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginButtonActionPerformed
+        Connection conn = null;
+        Statement statement = null;
+        String DBQ = "";
+        try {
+            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+            conn = DriverManager.getConnection("jdbc:derby:QuizGameDB_Edb; create=true", "pdc", "pdc");
+            
+            statement = conn.createStatement();
+            DBQ = "SELECT * FROM USERS WHERE USERNAME='" + usernameField.getText() + "' AND PASSWORD='" + passwordField.getText() + "'";
+            
+            ResultSet rs = statement.executeQuery(DBQ);
+            if(rs.next()){
+                JOptionPane.showMessageDialog(null, "Successful login.");
+            }
+            else{
+                JOptionPane.showMessageDialog(null, "Incorrect login credentials, please try again.");
+            }
+        } 
+        catch(Exception e){
+            System.err.println(e);
+            System.out.println(e.getMessage());
+        }
+    }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,8 +204,8 @@ public class Login extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;
-    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton loginButton;
     private javax.swing.JPasswordField passwordField;
     private javax.swing.JLabel passwordLabel;
     private javax.swing.JCheckBox showpwCheckBox;

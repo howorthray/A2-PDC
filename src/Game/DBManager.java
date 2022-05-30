@@ -9,9 +9,9 @@ public final class DBManager {
     //Main manager class for connecting to the database
     //hghuvhfhdub
 
-    private static final String USER_NAME = "pdc";
-    private static final String PASSWORD = "pdc";
-    private static final String URL = "jdbc:derby:QuizGameDB; create=true";
+    private final String USER_NAME = "pdc";
+    private final String PASSWORD = "pdc";
+    private final String URL = "jdbc:derby:QuizGameDB_Edb; create=true";
 
     Connection conn;
 
@@ -22,6 +22,8 @@ public final class DBManager {
     public static void main(String[] args) {
         DBManager dbManager = new DBManager();
         System.out.println(dbManager.getConnection());
+//        Database db = new Database();
+//        System.out.println(db.getConnection());
     }
 
     public Connection getConnection() {
@@ -33,9 +35,10 @@ public final class DBManager {
         if (this.conn == null) {
             try {
                 conn = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-                System.out.println(URL + " Get Connected Successfully ....");
+                System.out.println(URL + " Connected Successfully ....");
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
+                ex.printStackTrace();
             }
         }
     }

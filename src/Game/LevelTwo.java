@@ -10,24 +10,36 @@ package Game;
  */
 public class LevelTwo implements GameMode{
 
+    public String name;
+    public int buyIn;
+    public int numQuestions;
+    public int reward;
+    
+    public LevelTwo(){
+        this.name = "Level 2";
+        this.buyIn = 1000;
+        this.numQuestions = 3;
+        this.reward = 10000;
+    }
+
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.name;
     }
 
     @Override
     public int getBuyIn() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.buyIn;
     }
 
     @Override
     public int numQuestions() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.numQuestions;
     }
 
     @Override
     public int getReward() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.reward;
     }
     
 }

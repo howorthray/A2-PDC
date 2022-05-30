@@ -1,7 +1,3 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Game;
 
 /**
@@ -9,25 +5,37 @@ package Game;
  * @author elanm
  */
 public class LevelElite implements GameMode{
+    
+    public String name;
+    public int buyIn;
+    public int numQuestions;
+    public int reward;
+    
+    public LevelElite(){
+        this.name = "Elite";
+        this.buyIn = 100000;
+        this.numQuestions = 10;
+        this.reward = 1000000;
+    }
 
     @Override
     public String getName() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.name;
     }
 
     @Override
     public int getBuyIn() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.buyIn;
     }
 
     @Override
     public int numQuestions() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.numQuestions;
     }
 
     @Override
     public int getReward() {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        return this.reward;
     }
     
 }
