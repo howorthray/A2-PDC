@@ -13,7 +13,7 @@ public class LevelElite implements GameMode{
     
     public LevelElite(){
         this.name = "Elite";
-        this.buyIn = 10000;
+        this.buyIn = 100000;
         this.numQuestions = 10;
         this.reward = 1000000;
     }
