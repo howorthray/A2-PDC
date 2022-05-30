@@ -16,7 +16,8 @@ public class QuizMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        System.out.println("Testing Git.");
+        Users u = new Users();
+        Menu m = new Menu();
     }
     
 }
