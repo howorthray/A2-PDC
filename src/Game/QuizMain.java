@@ -18,6 +18,8 @@ public class QuizMain {
     public static void main(String[] args) {
         Users u = new Users();
         Menu m = new Menu();
+        m.setVisible(true);
+        m.setLocationRelativeTo(null);
     }
     
 }
