@@ -11,7 +11,7 @@ public final class DBManager {
 
     private static final String USER_NAME = "pdc";
     private static final String PASSWORD = "pdc";
-    private static final String URL = "jdbc:derby:QuizGameDB; create=true";
+    private static final String URL = "jdbc:derby:QuizGameDB_Edb; create=true";
 
     Connection conn;
 
@@ -22,6 +22,8 @@ public final class DBManager {
     public static void main(String[] args) {
         DBManager dbManager = new DBManager();
         System.out.println(dbManager.getConnection());
+//        Database db = new Database();
+//        System.out.println(db.getConnection());
     }
 
     public Connection getConnection() {
