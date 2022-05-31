@@ -9,15 +9,45 @@ import javax.swing.JLabel;
 public class Game extends javax.swing.JFrame {
 
   
-    public Game(GameMode game) {
+    public Game(GameMode levelGame) {
         initComponents();
-        GameInitComponents();
+        GameInitComponents(levelGame);
     }
-    public void GameInitComponents() {
-        optionA.setText("f");
-        Progress.setText("Question: " + 1 +"/" + 3);
+    public void GameInitComponents(GameMode levelGame) {
+        Integer[] idArray = levelGame.getQuestionId();
+        int current = 1;
+        int total = idArray.length;
+        
+        
+        
+        
+ 
         
 }
+    
+    public void setOptA(String optA){
+        optionA.setText(optA);
+    }
+    
+    public void setOptB(String optB){
+        optionA.setText(optB);
+    }
+    
+    public void setOptC(String optC){
+        optionA.setText(optC);
+    }
+    
+    public void setOptD(String optD){
+        optionA.setText(optD);
+    }
+    
+    public void setQuestion(String question){
+        optionA.setText(question);
+    }
+    
+    public void setProgess(int current, int total){
+        Progress.setText("Question: " + current +"/" + total);
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.

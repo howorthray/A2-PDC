@@ -4,6 +4,8 @@
  */
 package Game;
 
+import java.util.Random;
+
 /**
  *
  * @author elanm
@@ -18,8 +20,8 @@ public class LevelOne implements GameMode{
     public LevelOne(){
         this.name = "Level 1";
         this.buyIn = 0;
-        this.numQuestions = 100;
-        this.reward = 100;
+        this.numQuestions = 3;
+        this.reward = 300;
     }
 
     @Override
@@ -41,5 +43,26 @@ public class LevelOne implements GameMode{
     public int getReward() {
         return this.reward;
     }
-    
+    @Override
+    public Integer[] getQuestionId() {
+        Random rand = new Random();
+        Integer[] numArray = new Integer[this.numQuestions];
+        for (int i = 0; i < numArray.length; i++) {
+            boolean run = true;
+            while (run) {
+                run = false;
+                int x = rand.nextInt(75) + 1;
+                for (int j = 0; j < i; j++) {
+                    if (x == numArray[j]) {
+                        run = true;
+                        break;
+                    }
+                }
+                if (!run) {
+                    numArray[i] = x;
+                }
+            }
+        }
+        return numArray;
+    }
 }
