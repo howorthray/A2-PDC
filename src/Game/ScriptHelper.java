@@ -2,9 +2,11 @@ package Game;
 
 import java.sql.Connection;
 import java.sql.DatabaseMetaData;
+import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -36,16 +38,16 @@ public class ScriptHelper {
         }
     }
     
-    public ResultSet executeQuery(String input){
-        ResultSet rs = null;
-        try{
-            rs = this.statement.executeQuery(input);
-        }
-        catch(SQLException ex){
-            ex.printStackTrace();
-        }
-        return rs;
-    }
+//    public ResultSet executeQuery(String input){
+//        ResultSet rs = null;
+//        try{
+//            rs = this.statement.executeQuery(input);
+//        }
+//        catch(SQLException ex){
+//            ex.printStackTrace();
+//        }
+//        return rs;
+//    }
     
     
     public void closeConnection() {
@@ -73,9 +75,30 @@ public class ScriptHelper {
         return exists;
     }
    
-    public ResultSet getQuestion(int questionId){
-        String query = "SELECT * FROM QUESTIONS WHERE QUESTION_ID = " + questionId;
-        ResultSet rs = executeQuery(query);
+//    public ResultSet getQuestion(int questionId){
+//        String query = "SELECT * FROM QUESTIONS WHERE QUESTION_ID = " + questionId;
+//        ResultSet rs = executeQuery(query);
+//        return rs;
+//    }
+    
+    public ResultSet testExecuteQuery(int query){
+        Connection conn = null;
+        Statement statement = null;
+        String DBQ = "SELECT * FROM QUESTIONS WHERE QUESTION_ID = " + query;
+        ResultSet rs = null;
+        try {
+//            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+            conn = DriverManager.getConnection("jdbc:derby:QuizGameDB_Edb; create=true", "pdc", "pdc");
+            
+            statement = conn.createStatement();
+            
+            rs = statement.executeQuery(DBQ);
+//            return rs;
+        } 
+        catch(Exception e){
+            System.err.println(e);
+            System.out.println(e.getMessage());
+        }
         return rs;
     }
     

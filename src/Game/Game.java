@@ -7,27 +7,23 @@ package Game;
 import javax.swing.JLabel;
 
 public class Game extends javax.swing.JFrame {
-
+    
+    String answer;
   
-    public Game(GameMode levelGame) {
+    public Game() {
         initComponents();
-        GameInitComponents(levelGame);
+//        GameInitComponents();
     }
-    public void GameInitComponents(GameMode levelGame) {
-        Integer[] idArray = levelGame.getQuestionId();
-        int current = 1;
-        int total = idArray.length;
+    public void GameInitComponents() {
         
         
-        
-        
- 
-        
-}
+   
+    }
     
     public void setOptA(String optA){
         optionA.setText(optA);
     }
+    
     
     public void setOptB(String optB){
         optionA.setText(optB);
@@ -45,8 +41,20 @@ public class Game extends javax.swing.JFrame {
         optionA.setText(question);
     }
     
+    public void setAnswer(String answer){
+        this.answer = answer;
+    }
+    
     public void setProgess(int current, int total){
         Progress.setText("Question: " + current +"/" + total);
+    }
+    
+    public boolean checkAnswer(String input){
+        boolean correct = false;
+        if(this.answer.equalsIgnoreCase(input)){
+            correct = true;
+        }
+        return correct;
     }
 
     /**
@@ -173,7 +181,10 @@ public class Game extends javax.swing.JFrame {
     
     
     private void optionAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionAActionPerformed
-        
+        String input = optionA.getText();
+        if(!checkAnswer(input)){
+
+        }
     }//GEN-LAST:event_optionAActionPerformed
 
     private void optionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionBActionPerformed

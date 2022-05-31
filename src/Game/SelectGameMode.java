@@ -110,17 +110,17 @@ public class SelectGameMode extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
         LevelOne lvlOne = new LevelOne();
-        Game startLvlOne = new Game(lvlOne);
-        startLvlOne.setVisible(true);
-        startLvlOne.setLocationRelativeTo(null);
+        GameManager startLvlOne = new GameManager(lvlOne);
+//        startLvlOne.setVisible(true);
+//        startLvlOne.setLocationRelativeTo(null);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void Level2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Level2ActionPerformed
         this.setVisible(false);
         LevelTwo lvlTwo = new LevelTwo();
-        Game startLvlTwo = new Game(lvlTwo);
-        startLvlTwo.setVisible(true);
-        startLvlTwo.setLocationRelativeTo(null);
+        GameManager startLvlTwo = new GameManager(lvlTwo);
+//        startLvlTwo.setVisible(true);
+//        startLvlTwo.setLocationRelativeTo(null);
     }//GEN-LAST:event_Level2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
