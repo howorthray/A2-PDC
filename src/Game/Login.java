@@ -104,9 +104,9 @@ public class Login extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(passwordField, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(loginButton)
-                    .addComponent(backButton))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(backButton)
+                    .addComponent(loginButton))
                 .addContainerGap(72, Short.MAX_VALUE))
         );
 
@@ -148,6 +148,11 @@ public class Login extends javax.swing.JFrame {
             System.err.println(e);
             System.out.println(e.getMessage());
         }
+        this.setVisible(false);
+        SelectGameMode sgm = new SelectGameMode();
+        sgm.setVisible(true);
+        sgm.setLocationRelativeTo(null);
+        
     }//GEN-LAST:event_loginButtonActionPerformed
 
     /**
@@ -183,6 +188,7 @@ public class Login extends javax.swing.JFrame {
                 Login l = new Login();
                 l.setVisible(true);
                 l.setLocationRelativeTo(null);
+                
             }
         });
     }

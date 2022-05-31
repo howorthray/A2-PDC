@@ -1,2 +1,13 @@
-Tue May 31 13:22:41 NZST 2022 : Could not listen on port 1527 on host localhost:
- java.net.BindException: Address already in use: JVM_Bind
+----------------------------------------------------------------
+Tue May 31 16:35:16 NZST 2022:
+Booting Derby version The Apache Software Foundation - Apache Derby - 10.14.2.0 - (1828579): instance a816c00e-0181-1865-8aa3-00000e350428 
+on database directory C:\Users\elanm\Desktop\PDC-A2\New Folder\A2-PDC\QuizGameDB_Edb with class loader sun.misc.Launcher$AppClassLoader@5c647e05 
+Loaded from file:/C:/Users/elanm/Desktop/PDC-A2/New%20Folder/A2-PDC/lib/derby.jar
+java.vendor=Oracle Corporation
+java.runtime.version=1.8.0_321-b07
+user.dir=C:\Users\elanm\Desktop\PDC-A2\New Folder\A2-PDC
+os.name=Windows 10
+os.arch=amd64
+os.version=10.0
+derby.system.home=null
+Database Class Loader started - derby.database.classpath=''
