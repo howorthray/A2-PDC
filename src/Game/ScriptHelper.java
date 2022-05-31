@@ -6,40 +6,50 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Users {
-
-    DBManager dbManager;
+/**
+ *
+ * @author User
+ */
+public class ScriptHelper {
+    
+    DBManager database;
     Connection conn;
     Statement statement;
-
-    public Users() {
-        dbManager = new DBManager();
-        conn = dbManager.getConnection();
-        try {
-            statement = conn.createStatement();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        
-        addUsers();
+    
+    public ScriptHelper(){
+        database = new DBManager();
+        conn = database.getConnection();
     }
     
-    public void addUsers(){
-         try {
-            if(!checkTableExists("USERS")){
-                this.statement.executeUpdate("CREATE  TABLE USERS  (USERNAME   VARCHAR(50),   PASSWORD   VARCHAR(20),   BALANCE   INT)");
-            }
-            this.statement.addBatch("INSERT INTO USERS VALUES ('Ray', '2212', 0)");
-            
-            this.statement.executeBatch();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
-        this.closeConnection();
+    public Connection getConnection(){
+        return this.conn;
     }
+    
+    public void executeScript(String input){
+        try{
+            statement = this.conn.createStatement();
+            statement.executeUpdate(input);
 
+        }
+        catch(SQLException ex){
+            ex.printStackTrace();
+        }
+    }
+    
+    public ResultSet executeQuery(String input){
+        ResultSet rs = null;
+        try{
+            rs = this.statement.executeQuery(input);
+        }
+        catch(SQLException ex){
+            ex.printStackTrace();
+        }
+        return rs;
+    }
+    
+    
     public void closeConnection() {
-        this.dbManager.closeConnections();
+        this.database.closeConnections();
     }
     
     public boolean checkTableExists(String tableName) {
@@ -47,8 +57,6 @@ public class Users {
         try {
             DatabaseMetaData dbmd = this.conn.getMetaData();
             String[] types = {"TABLE"};
-            Statement statement;
-            statement = this.conn.createStatement();
             ResultSet rs = dbmd.getTables(null, null, null, types);
 
             while (rs.next()) {
@@ -64,5 +72,6 @@ public class Users {
         }
         return exists;
     }
-
+   
+    
 }
