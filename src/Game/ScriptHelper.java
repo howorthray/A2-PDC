@@ -73,5 +73,10 @@ public class ScriptHelper {
         return exists;
     }
    
+    public ResultSet getQuestion(int questionId){
+        String query = "SELECT * FROM QUESTIONS WHERE QUESTION_ID = " + questionId;
+        ResultSet rs = executeQuery(query);
+        return rs;
+    }
     
 }
