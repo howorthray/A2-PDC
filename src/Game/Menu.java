@@ -34,6 +34,8 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        setMaximumSize(new java.awt.Dimension(500, 421));
+        setMinimumSize(new java.awt.Dimension(500, 421));
 
         StartGameButton.setBackground(new java.awt.Color(204, 204, 204));
         StartGameButton.setText("Start Game");

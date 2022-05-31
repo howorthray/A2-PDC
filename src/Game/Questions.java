@@ -5,28 +5,20 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.SQLException;
-import java.sql.Statement; 
+
 
 
 public class Questions {
     
-   DBManager dbManager;
-   Connection conn;
-   Statement statement;
+
+   ScriptHelper scriptHelper;
    private final String QuestionsFileName = "./resources/QuizQuestions.txt";
    private BufferedReader br = null;
    private FileReader fr = null;
    
    public Questions(){
-       dbManager = new DBManager();
-        conn = dbManager.getConnection();
-        try {
-            statement = conn.createStatement();
-        } catch (SQLException ex) {
-            System.out.println(ex.getMessage());
-        }
+
+        scriptHelper = new ScriptHelper();
         this.readTextFile();
    }
    
@@ -36,12 +28,7 @@ public class Questions {
            br = new BufferedReader(fr);
             String line = null;
             while((line = br.readLine()) != null){
-               try {
-                   this.statement.executeUpdate("INSERT INTO QUESTIONS VALUES " + line );
-               } catch (SQLException ex) {
-                   System.out.println(ex.getMessage());
-               }
-
+                scriptHelper.executeScript("INSERT INTO QUESTIONS VALUES " + line );
             }
         }catch(FileNotFoundException e){
             System.out.println(e.getMessage());
