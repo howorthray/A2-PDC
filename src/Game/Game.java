@@ -5,47 +5,46 @@
 package Game;
 
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 public class Game extends javax.swing.JFrame {
     
     String answer;
-    String optA;
+    boolean correct = true;
   
     public Game() {
         initComponents();
-       GameInitComponents();
+//       GameInitComponents();
     }
     
    
     public final void GameInitComponents() {
 //         optionA.setText(this.getOptA());
-        optionA.setText("Cringe");
+//        optionA.setText("Cringe");
+        
+        
    
     }
     
+    
     public void setOptA(String questionOptA){
-        this.optA = questionOptA;
+        optionA.setText(questionOptA);
     }
-    
-    public String getOptA(){
-        return this.optA;
-    }
-    
-    
+
     public void setOptB(String optB){
-        optionA.setText(optB);
+        optionB.setText(optB);
     }
     
     public void setOptC(String optC){
-        optionA.setText(optC);
+        optionC.setText(optC);
     }
     
     public void setOptD(String optD){
-        optionA.setText(optD);
+        optionD.setText(optD);
     }
     
     public void setQuestion(String question){
-        optionA.setText(question);
+        questionDisplay.setText(question);
     }
     
     public void setAnswer(String answer){
@@ -148,19 +147,16 @@ public class Game extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(optionA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(Progress)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(questionDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton1))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(optionC)
-                            .addComponent(optionB)
-                            .addComponent(optionA)
-                            .addComponent(optionD))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addComponent(optionB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(optionC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(optionD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -190,20 +186,70 @@ public class Game extends javax.swing.JFrame {
     private void optionAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionAActionPerformed
         String input = optionA.getText();
         if(!checkAnswer(input)){
-
+            correct = false;
+            JOptionPane.showMessageDialog(null, "Wrong answer!");
+            this.setVisible(false);
+            SelectGameMode gameModes = new SelectGameMode();
+                
+            gameModes.setVisible(true);
+            gameModes.setLocationRelativeTo(null);
+            System.out.println("Wrong Answer");
+        }
+        else{
+            System.out.println("Correct Answer");
         }
     }//GEN-LAST:event_optionAActionPerformed
 
     private void optionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionBActionPerformed
-        // TODO add your handling code here:
+        String input = optionB.getText();
+        if(!checkAnswer(input)){
+            correct = false;
+            JOptionPane.showMessageDialog(null, "Wrong answer!");
+            this.setVisible(false);
+            SelectGameMode gameModes = new SelectGameMode();
+                
+            gameModes.setVisible(true);
+            gameModes.setLocationRelativeTo(null);
+            System.out.println("Wrong Answer");
+        }
+        else{
+            System.out.println("Correct Answer");
+        }
     }//GEN-LAST:event_optionBActionPerformed
 
     private void optionCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionCActionPerformed
-        // TODO add your handling code here:
+        String input = optionC.getText();
+        if(!checkAnswer(input)){
+            correct = false;
+            JOptionPane.showMessageDialog(null, "Wrong answer!");
+            this.setVisible(false);
+            SelectGameMode gameModes = new SelectGameMode();
+                
+            gameModes.setVisible(true);
+            gameModes.setLocationRelativeTo(null);
+            System.out.println("Wrong Answer");
+        }
+        else{
+            System.out.println("Correct Answer");
+        }
     }//GEN-LAST:event_optionCActionPerformed
 
     private void optionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionDActionPerformed
-        // TODO add your handling code here:
+        String input = optionD.getText();
+        if(!checkAnswer(input)){
+            correct = false;
+            
+            JOptionPane.showMessageDialog(null, "Wrong answer!");
+            this.setVisible(false);
+            SelectGameMode gameModes = new SelectGameMode();
+                
+            gameModes.setVisible(true);
+            gameModes.setLocationRelativeTo(null);
+            System.out.println("Wrong Answer");
+        }
+        else{
+            System.out.println("Correct Answer");
+        }
     }//GEN-LAST:event_optionDActionPerformed
 
     /**

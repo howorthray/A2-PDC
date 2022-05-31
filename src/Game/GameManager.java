@@ -11,16 +11,21 @@ import java.sql.SQLException;
  */
 public class GameManager {
     
-    GameMode game;
+    GameMode gm;
     ScriptHelper sh = new  ScriptHelper();
     int questionCount = 0;
     Integer[] idArray;
     String possibleAnswer;
+    Game game;
+
     
     public GameManager(GameMode gm){
-         game = gm;
-         idArray = game.getQuestionId();
-         startGame();
+         this.gm = gm;
+         idArray = this.gm.getQuestionId();
+//         game = new Game();
+//         this.getQuestion();
+//         game.setVisible(true);
+        startGame();
     }
     
     public String getQuestion(){
@@ -31,12 +36,13 @@ public class GameManager {
         try {
             while(rs.next()){
                 question = rs.getString("QUESTION");
+//                game.setQuestion(question);
+                return question;
             }
         }
         catch (SQLException ex) {
             ex.printStackTrace();
         }
-        //get question of idArray[questionCount]
         return question;
     }
     
@@ -46,7 +52,9 @@ public class GameManager {
 //        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
-            optA = rs.getString("OPT_A");
+            while(rs.next()){
+                optA = rs.getString("OPT_A");
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -60,7 +68,9 @@ public class GameManager {
 //        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
-            optB = rs.getString("OPT_B");
+            while(rs.next()){
+                optB = rs.getString("OPT_B");
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -73,7 +83,9 @@ public class GameManager {
 //        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
-            optC = rs.getString("OPT_C");
+            while(rs.next()){
+                optC = rs.getString("OPT_C");
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -86,7 +98,9 @@ public class GameManager {
 //        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
-            optD = rs.getString("OPT_D");
+            while(rs.next()){
+                optD = rs.getString("OPT_D");
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -99,7 +113,9 @@ public class GameManager {
 //        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
-            answer = rs.getString("ANSWER");
+            while(rs.next()){
+                answer = rs.getString("ANSWER");
+            }
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
@@ -108,10 +124,11 @@ public class GameManager {
     
     
     public void startGame(){
-        boolean correct = true;
-        while(correct && this.questionCount < idArray.length ){
-             System.out.println("Game start: " + this.questionCount);
+          
+//        while(correct && this.questionCount < idArray.length ){
+//             System.out.println("Game start: " + this.questionCount);
              Game game = new Game();
+             
              game.setQuestion(getQuestion());
              game.setOptA(getOptA());
              game.setOptB(getOptB());
@@ -120,15 +137,13 @@ public class GameManager {
              game.setAnswer(getAnswer());
              game.setVisible(true);
              game.setLocationRelativeTo(null);
-             this.questionCount ++;
-            }
-            correct = false;
+             
+             
+//             this.questionCount ++;
+//            }
+//            correct = false;
         }
-        //while boolean correct
-        //for i =0 < idArray.length
-        // Game newGame = new Game();
-        //newGame.setOptA(this.getOptA());
-        // questionCount++;
+
     
     
     public boolean checkCorrect(){
