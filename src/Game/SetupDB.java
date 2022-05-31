@@ -6,13 +6,13 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class Users {
+public class SetupDB {
 
     DBManager dbManager;
     Connection conn;
     Statement statement;
 
-    public Users() {
+    public SetupDB() {
         dbManager = new DBManager();
         conn = dbManager.getConnection();
         try {
@@ -21,16 +21,19 @@ public class Users {
             System.out.println(ex.getMessage());
         }
         
-        addUsers();
+        addTables();
     }
     
-    public void addUsers(){
+    public void addTables(){
          try {
             if(!checkTableExists("USERS")){
                 this.statement.executeUpdate("CREATE  TABLE USERS  (USERNAME   VARCHAR(50),   PASSWORD   VARCHAR(20),   BALANCE   INT)");
             }
+            if(!checkTableExists("QUESTIONS")){
+                this.statement.executeUpdate("CREATE  TABLE QUESTIONS  (QUESTION_ID   INT,   QUESTION   VARCHAR(255),   OPT_A   VARCHAR(50), OPT_B   VARCHAR(50), OPT_C  VARCHAR(50), OPT_D   VARCHAR(50), ANSWER  VARCHAR(50))");
+            }
             this.statement.addBatch("INSERT INTO USERS VALUES ('Ray', '2212', 0)");
-            
+            this.statement.addBatch("INSERT INTO QUESTIONS VALUES (1, 'A', 'B', 'C', 'D', 'E', 'E')");
             this.statement.executeBatch();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());

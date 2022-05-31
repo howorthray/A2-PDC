@@ -16,7 +16,8 @@ public class QuizMain {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        Users u = new Users();
+        SetupDB u = new SetupDB();
+        Questions q = new Questions();
         Menu m = new Menu();
         m.setVisible(true);
         m.setLocationRelativeTo(null);

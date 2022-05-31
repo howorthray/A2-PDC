@@ -22,8 +22,7 @@ public final class DBManager {
     public static void main(String[] args) {
         DBManager dbManager = new DBManager();
         System.out.println(dbManager.getConnection());
-//        Database db = new Database();
-//        System.out.println(db.getConnection());
+
     }
 
     public Connection getConnection() {
