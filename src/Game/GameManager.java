@@ -29,8 +29,11 @@ public class GameManager {
 //        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
-            question = rs.getString("QUESTION");
-        } catch (SQLException ex) {
+            while(rs.next()){
+                question = rs.getString("QUESTION");
+            }
+        }
+        catch (SQLException ex) {
             ex.printStackTrace();
         }
         //get question of idArray[questionCount]
@@ -106,18 +109,18 @@ public class GameManager {
     
     public void startGame(){
         boolean correct = true;
-        while(correct){
-            for(int i = 0; i < idArray.length; i++){
-                System.out.println("Game start: " + i);
-                Game game = new Game();
-                game.setQuestion(getQuestion());
-                game.setOptA(getOptA());
-                game.setOptB(getOptB());
-                game.setOptC(getOptC());
-                game.setOptD(getOptD());
-                game.setAnswer(getAnswer());
-                game.setVisible(true);
-                game.setLocationRelativeTo(null);
+        while(correct && this.questionCount < idArray.length ){
+             System.out.println("Game start: " + this.questionCount);
+             Game game = new Game();
+             game.setQuestion(getQuestion());
+             game.setOptA(getOptA());
+             game.setOptB(getOptB());
+             game.setOptC(getOptC());
+             game.setOptD(getOptD());
+             game.setAnswer(getAnswer());
+             game.setVisible(true);
+             game.setLocationRelativeTo(null);
+             this.questionCount ++;
             }
             correct = false;
         }
@@ -126,7 +129,7 @@ public class GameManager {
         // Game newGame = new Game();
         //newGame.setOptA(this.getOptA());
         // questionCount++;
-    }
+    
     
     public boolean checkCorrect(){
         return false;

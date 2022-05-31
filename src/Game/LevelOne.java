@@ -51,7 +51,7 @@ public class LevelOne implements GameMode{
             boolean run = true;
             while (run) {
                 run = false;
-                int x = rand.nextInt(75) + 1;
+                int x = rand.nextInt(10) + 1;
                 for (int j = 0; j < i; j++) {
                     if (x == numArray[j]) {
                         run = true;

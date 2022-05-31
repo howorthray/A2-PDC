@@ -9,19 +9,26 @@ import javax.swing.JLabel;
 public class Game extends javax.swing.JFrame {
     
     String answer;
+    String optA;
   
     public Game() {
         initComponents();
-//        GameInitComponents();
+       GameInitComponents();
     }
-    public void GameInitComponents() {
-        
-        
+    
+   
+    public final void GameInitComponents() {
+//         optionA.setText(this.getOptA());
+        optionA.setText("Cringe");
    
     }
     
-    public void setOptA(String optA){
-        optionA.setText(optA);
+    public void setOptA(String questionOptA){
+        this.optA = questionOptA;
+    }
+    
+    public String getOptA(){
+        return this.optA;
     }
     
     

@@ -119,7 +119,7 @@ public class SelectGameMode extends javax.swing.JFrame {
         this.setVisible(false);
         LevelTwo lvlTwo = new LevelTwo();
         GameManager startLvlTwo = new GameManager(lvlTwo);
-//        startLvlTwo.setVisible(true);
+ //       startLvlTwo.setVisible(true);
 //        startLvlTwo.setLocationRelativeTo(null);
     }//GEN-LAST:event_Level2ActionPerformed
 
