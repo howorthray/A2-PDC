@@ -261,6 +261,12 @@ public class Login extends javax.swing.JFrame {
             ResultSet rs = statement.executeQuery(DBQ);
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Successful login.");
+                this.setVisible(false);
+                SelectGameMode gameModes = new SelectGameMode();
+                
+                gameModes.setVisible(true);
+                gameModes.setLocationRelativeTo(null);
+                
             }
             else{
                 JOptionPane.showMessageDialog(null, "Incorrect login credentials, please try again.");
