@@ -47,7 +47,7 @@
 (47, 'How many daughters does Barack Obama have?', '0', '1', '2', '3', '2')
 (48, 'Which Disney princess sings “Just Around The Riverbend”?', 'Snow White', 'Pocahontas', 'Elsa', 'Belle', 'Pocahontas')
 (49, 'How many boroughs are there in New York City?', '4', '5', '6', '10', '5')
-(50, 'In the U.S. version of The Office, Michael Scott burns his foot on:', 'hot water', 'cement', 'rocks on fire', 'a George Foreman Grill', 'George Foreman Grill')
+(50, 'In the U.S. version of The Office, Michael Scott burns his foot on:', 'hot water', 'cement', 'rocks on fire', 'a George Foreman Grill', 'a George Foreman Grill')
 (51, 'The superstition believes that when the groundhog sees his shadow, it means:', 'early spring', '6 more weeks of winter', 'its going to rain', 'a tornado is coming', '6 more weeks of winter')
 (52, 'What is the longest river in the world?', 'Amazon', 'Congo', 'Nile', 'Hudson', 'Amazon')
 (53, 'How many days are in February during a leap year?', '28', '29', '30', '31', '29')

@@ -19,7 +19,9 @@ public class Questions {
    public Questions(){
 
         scriptHelper = new ScriptHelper();
-        this.readTextFile();
+        if(!scriptHelper.checkMaxQuestions()){
+            this.readTextFile();
+        }
    }
    
    public void readTextFile(){
@@ -28,7 +30,7 @@ public class Questions {
            br = new BufferedReader(fr);
             String line = null;
             while((line = br.readLine()) != null){
-                scriptHelper.executeScript("INSERT INTO QUESTIONS VALUES " + line );
+                scriptHelper.executeScript("INSERT INTO QUESTIONS VALUES " + line);
             }
         }catch(FileNotFoundException e){
             System.out.println(e.getMessage());

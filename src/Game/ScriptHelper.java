@@ -81,6 +81,37 @@ public class ScriptHelper {
 //        return rs;
 //    }
     
+   public boolean checkMaxQuestions(){
+        boolean max = true;
+        int counter = 0;
+        int total = 75;
+        Connection conn = null;
+        Statement statement = null;
+        String DBQ = "SELECT * FROM QUESTIONS";
+        ResultSet rs = null;
+        try {
+//            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
+            conn = DriverManager.getConnection("jdbc:derby:QuizGameDB_Edb; create=true", "pdc", "pdc");
+            
+            statement = conn.createStatement();
+            
+            rs = statement.executeQuery(DBQ);
+            while(rs.next()){
+                counter++;
+                }
+            
+//            return rs;
+        } 
+        catch(Exception e){
+            System.err.println(e);
+            System.out.println(e.getMessage());
+        }
+        if(counter == total){
+            return true;
+        }
+        return false;
+    }
+    
     public ResultSet testExecuteQuery(int query){
         Connection conn = null;
         Statement statement = null;
