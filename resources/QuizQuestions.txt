@@ -6,7 +6,7 @@
 (6, 'Which animal does not appear in the Chinese zodiac?', 'Dragon', 'Rabbit', 'Dog', 'Hummingbird', 'Hummingbird')
 (7, 'Which country held the 2016 Summer Olympics?', 'China', 'Ireland', 'Brazil', 'Italy', 'Brazil')
 (8, 'Which planet is the hottest?', 'Venus', 'Saturn', 'Mercury', 'Mars', 'Venus')
-(9, 'Who was the only U.S. President to resign?', 'Herbert Hoover', 'Richard Nixon', 'George W. Bush', 'Barack Obama', 'Nixon')
+(9, 'Who was the only U.S. President to resign?', 'Herbert Hoover', 'Richard Nixon', 'George W. Bush', 'Barack Obama', 'Richard Nixon')
 (10, 'What does the “D” in “D-Day” stand for?', 'Dooms', 'Dark', 'Day', 'Dunkirk', 'Day')
 (11, 'In which city can you find the Liberty Bell?', 'Washington, D.C.', 'Boston', 'Philadelphia', 'Manhattan', 'Philadelphia')
 (12, 'In Pirates of the Caribbean, what was Captain Jack Sparrows ships name?', 'The Marauder', 'The Black Pearl', 'The Black Python', 'The Slytherin', 'The Black Pearl')

@@ -4,6 +4,8 @@
  */
 package Game;
 
+import javax.swing.JOptionPane;
+
 
 
 /**
@@ -17,6 +19,13 @@ public class SelectGameMode extends javax.swing.JFrame {
      */
     public SelectGameMode() {
         initComponents();
+        newInitComponents();
+    }
+    
+    private void newInitComponents(){
+        usernameLabel.setText("User: " + User.currentUser);
+        balanceLabel.setText("Balance: $" + User.userBalance);
+        
     }
 
     /**
@@ -33,10 +42,13 @@ public class SelectGameMode extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        balanceLabel = new javax.swing.JLabel();
+        usernameLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jButton1.setText("<html>   Level 1<br />Buy in: 0 <br /> Reward: 100</html>");
+        jButton1.setBackground(new java.awt.Color(204, 255, 204));
+        jButton1.setText("<html>   Level 1<br />Buy in: Free <br /> Reward: $100</html>");
         jButton1.setMinimumSize(new java.awt.Dimension(124, 85));
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -44,7 +56,8 @@ public class SelectGameMode extends javax.swing.JFrame {
             }
         });
 
-        Level2.setText("<html>   Level 2<br />Buy in: 1000 <br /> Reward: 10,000</html>");
+        Level2.setBackground(new java.awt.Color(204, 255, 255));
+        Level2.setText("<html>   Level 2<br />Buy in: $1000 <br /> Reward: $10,000</html>");
         Level2.setMinimumSize(new java.awt.Dimension(124, 85));
         Level2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -52,7 +65,8 @@ public class SelectGameMode extends javax.swing.JFrame {
             }
         });
 
-        jButton3.setText("<html>   Level 3<br />Buy in: 30,000 <br /> Reward: 10,000</html>");
+        jButton3.setBackground(new java.awt.Color(255, 255, 153));
+        jButton3.setText("<html>   Level 3<br />Buy in: $30,000 <br /> Reward: $10,000</html>");
         jButton3.setMinimumSize(new java.awt.Dimension(124, 85));
         jButton3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -60,40 +74,55 @@ public class SelectGameMode extends javax.swing.JFrame {
             }
         });
 
-        jButton4.setText("<html>   Level ELITE<br />Buy in: 100,000 <br /> Reward: 1,000,000</html>");
+        jButton4.setBackground(new java.awt.Color(255, 102, 102));
+        jButton4.setText("<html>   Level ELITE<br />Buy in: $100,000 <br /> Reward: $1,000,000</html>");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jLabel1.setText("Select what level you would like to play");
+        jLabel1.setText("Select what level you would like to play?");
+
+        balanceLabel.setText("Balance: ");
+
+        usernameLabel.setText("Username: ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 219, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(49, 49, 49)
+                .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addComponent(jButton4))
-                    .addComponent(Level2, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, 189, Short.MAX_VALUE))
+                .addGap(59, 59, 59)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(Level2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, 180, Short.MAX_VALUE))
+                .addGap(28, 28, 28))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap()
+                .addComponent(usernameLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(balanceLabel)
+                .addGap(134, 134, 134))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(152, Short.MAX_VALUE)
                 .addComponent(jLabel1)
-                .addGap(79, 79, 79))
+                .addGap(145, 145, 145))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(25, 25, 25)
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(balanceLabel)
+                    .addComponent(usernameLabel))
+                .addGap(21, 21, 21)
                 .addComponent(jLabel1)
-                .addGap(39, 39, 39)
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(Level2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -110,25 +139,55 @@ public class SelectGameMode extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         this.setVisible(false);
         LevelOne lvlOne = new LevelOne();
+        GameHelper.setNumGames(lvlOne.numQuestions());
+        GameHelper.setGameMode(lvlOne);
         GameManager startLvlOne = new GameManager(lvlOne);
-//        startLvlOne.setVisible(true);
-//        startLvlOne.setLocationRelativeTo(null);
+
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void Level2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Level2ActionPerformed
-        this.setVisible(false);
-        LevelTwo lvlTwo = new LevelTwo();
-        GameManager startLvlTwo = new GameManager(lvlTwo);
- //       startLvlTwo.setVisible(true);
-//        startLvlTwo.setLocationRelativeTo(null);
+        if(User.checkBalance(1000)){
+            this.setVisible(false);
+            LevelTwo lvlTwo = new LevelTwo();
+            GameHelper.setNumGames(lvlTwo.numQuestions());
+            GameHelper.setGameMode(lvlTwo);
+            GameManager startLvlTwo = new GameManager(lvlTwo);
+            
+            User.changeBalance(-lvlTwo.getBuyIn());
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "You need at least $1,000 to play this level.");
+        }
     }//GEN-LAST:event_Level2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        // TODO add your handling code here:
+        if(User.checkBalance(100000)){
+            this.setVisible(false);
+            LevelElite lvlElite = new LevelElite();
+            GameHelper.setNumGames(lvlElite.numQuestions());
+            GameHelper.setGameMode(lvlElite);
+            GameManager startLvlTwo = new GameManager(lvlElite);
+            
+            User.changeBalance(-lvlElite.getBuyIn());
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "You need at least $100,000 to play this level.");
+        }
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
-        // TODO add your handling code here:
+        if(User.checkBalance(30000)){
+            this.setVisible(false);
+            LevelThree lvlThree = new LevelThree();
+            GameHelper.setNumGames(lvlThree.numQuestions());
+            GameHelper.setGameMode(lvlThree);
+            GameManager startLvlTwo = new GameManager(lvlThree);
+            
+            User.changeBalance(-lvlThree.getBuyIn());
+        }
+        else{
+            JOptionPane.showMessageDialog(null, "You need at least $30,000 to play this level.");
+        }
     }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
@@ -170,9 +229,11 @@ public class SelectGameMode extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Level2;
+    private javax.swing.JLabel balanceLabel;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel usernameLabel;
     // End of variables declaration//GEN-END:variables
 }

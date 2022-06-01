@@ -102,4 +102,24 @@ public class ScriptHelper {
         return rs;
     }
     
+    public ResultSet balanceQuery(String user){
+        Connection conn = null;
+        Statement statement = null;
+        String DBQ = "SELECT * FROM USERS WHERE USER = " + user;
+        ResultSet rs = null;
+        try {
+            conn = DriverManager.getConnection("jdbc:derby:QuizGameDB_Edb; create=true", "pdc", "pdc");
+            
+            statement = conn.createStatement();
+            
+            rs = statement.executeQuery(DBQ);
+//            return rs;
+        } 
+        catch(Exception e){
+            System.err.println(e);
+            System.out.println(e.getMessage());
+        }
+        return rs;
+    }
+    
 }

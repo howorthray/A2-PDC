@@ -261,6 +261,11 @@ public class Login extends javax.swing.JFrame {
             ResultSet rs = statement.executeQuery(DBQ);
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Successful login.");
+                
+                User.setCurrentUser(usernameField.getText());
+                int balance = rs.getInt("BALANCE");
+                User.changeBalance(balance);
+                
                 this.setVisible(false);
                 SelectGameMode gameModes = new SelectGameMode();
                 

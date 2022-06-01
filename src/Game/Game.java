@@ -1,7 +1,4 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
+
 package Game;
 
 import javax.swing.JLabel;
@@ -10,7 +7,7 @@ import javax.swing.JOptionPane;
 public class Game extends javax.swing.JFrame {
     
     String answer;
-    boolean correct = true;
+    public boolean correct = true;
   
     public Game() {
         initComponents();
@@ -106,6 +103,7 @@ public class Game extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        questionDisplay.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         questionDisplay.setText("(Question Display)");
 
         optionA.setText("A");
@@ -136,6 +134,7 @@ public class Game extends javax.swing.JFrame {
             }
         });
 
+        Progress.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         Progress.setText("num of questions");
 
         jButton1.setText("Exit");
@@ -147,12 +146,11 @@ public class Game extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(questionDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(optionA, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(Progress)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(questionDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 350, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(Progress, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 307, Short.MAX_VALUE)
                         .addComponent(jButton1))
                     .addComponent(optionB, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(optionC, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -162,12 +160,16 @@ public class Game extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(questionDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 87, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Progress)
-                    .addComponent(jButton1))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(jButton1))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addComponent(Progress, javax.swing.GroupLayout.DEFAULT_SIZE, 21, Short.MAX_VALUE)))
                 .addGap(24, 24, 24)
+                .addComponent(questionDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(optionA)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(optionB)
@@ -194,9 +196,13 @@ public class Game extends javax.swing.JFrame {
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
             System.out.println("Wrong Answer");
+            GameHelper.resetCount();
         }
         else{
             System.out.println("Correct Answer");
+            this.setVisible(false);
+            GameManager gm = new GameManager(GameHelper.gameMode);
+
         }
     }//GEN-LAST:event_optionAActionPerformed
 
@@ -211,9 +217,12 @@ public class Game extends javax.swing.JFrame {
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
             System.out.println("Wrong Answer");
+            GameHelper.resetCount();
         }
         else{
             System.out.println("Correct Answer");
+            this.setVisible(false);
+            GameManager gm = new GameManager(GameHelper.gameMode);
         }
     }//GEN-LAST:event_optionBActionPerformed
 
@@ -228,9 +237,12 @@ public class Game extends javax.swing.JFrame {
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
             System.out.println("Wrong Answer");
+            GameHelper.resetCount();
         }
         else{
             System.out.println("Correct Answer");
+            this.setVisible(false);
+            GameManager gm = new GameManager(GameHelper.gameMode);
         }
     }//GEN-LAST:event_optionCActionPerformed
 
@@ -246,9 +258,13 @@ public class Game extends javax.swing.JFrame {
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
             System.out.println("Wrong Answer");
+            GameHelper.resetCount();
         }
         else{
             System.out.println("Correct Answer");
+            this.setVisible(false);
+            GameManager gm = new GameManager(GameHelper.gameMode);
+
         }
     }//GEN-LAST:event_optionDActionPerformed
 
