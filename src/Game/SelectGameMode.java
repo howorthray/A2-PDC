@@ -188,6 +188,7 @@ public class SelectGameMode extends javax.swing.JFrame {
     }//GEN-LAST:event_levelThreeButtonActionPerformed
 
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        User.resetBalance();
         Menu menu = new Menu();
         this.setVisible(false);
         menu.setVisible(true);

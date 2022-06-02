@@ -50,6 +50,11 @@ public class User {
         }
         return false;
     }
+    
+    //Resets balance to 0 for a new game/ new user
+    static void resetBalance(){
+        userBalance = 0;
+    }
 }
     
     
