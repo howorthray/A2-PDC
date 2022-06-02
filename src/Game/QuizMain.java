@@ -1,21 +1,16 @@
 package Game;
 
-
-/**
- *
- * @author User
- */
 public class QuizMain {
-
-    /**
-     * @param args the command line arguments
-     */
+    
+    //Main class for starting the game
     public static void main(String[] args) {
-        SetupDB u = new SetupDB();
-        Questions q = new Questions();
+        //Sets up/connects to database
+        SetupDB database = new SetupDB();
+        //Populates questions
+        Questions questions = new Questions();
+        //Opens menu
         Menu m = new Menu();
         m.setVisible(true);
         m.setLocationRelativeTo(null);
-    }
-    
+    }    
 }

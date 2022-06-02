@@ -1,11 +1,8 @@
 package Game;
 
+import java.util.ArrayList;
 import java.util.Random;
 
-/**
- *
- * @author elanm
- */
 public class LevelElite implements GameMode{
     
     public String name;
@@ -40,27 +37,18 @@ public class LevelElite implements GameMode{
         return this.reward;
     }
     
+    //Gets a random Number base on how many questions are in the data base, then adds them to a ArrayList that size is set to the predetermined 
     @Override
-    public Integer[] getQuestionId() {
+    public ArrayList getQuestionId() {
         Random rand = new Random();
-        Integer[] numArray = new Integer[this.numQuestions];
-        for (int i = 0; i < numArray.length; i++) {
-            boolean run = true;
-            while (run) {
-                run = false;
-                int x = rand.nextInt(75) + 1;
-                for (int j = 0; j < i; j++) {
-                    if (x == numArray[j]) {
-                        run = true;
-                        break;
-                    }
-                }
-                if (!run) {
-                    numArray[i] = x;
-                }
+        ArrayList list = new ArrayList();
+        while(list.size() < this.numQuestions){
+            
+            int randId = rand.nextInt((75 - 1) + 1) + 1;
+            if(!list.contains(randId)){
+                list.add(randId);
             }
         }
-        return numArray;
+        return list;
     }
-    
 }
