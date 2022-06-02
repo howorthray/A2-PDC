@@ -196,6 +196,7 @@ public class SelectGameMode extends javax.swing.JFrame {
 
     //logs out user and returns back to menu if button is selected
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        User.setBalanceDB();
         //Resets static variable balance back to 0
         User.resetBalance();
         //returns back to menu

@@ -22,6 +22,7 @@ public class GameTest {
     
     @Before
     public void setUp() {
+        SetupDB u = new SetupDB();
     }
     
     @After
@@ -30,6 +31,7 @@ public class GameTest {
 
     @Test
     public void testQuestionsTableCreation(){
+        System.out.println("Testing questions table creation");
         SetupDB sdb = new SetupDB();
         ScriptHelper sh = new ScriptHelper();
         boolean questionsExists = sh.checkTableExists("QUESTIONS");
@@ -39,6 +41,7 @@ public class GameTest {
     
     @Test
     public void testUsersTableCreation(){
+        System.out.println("Testing users table creation");
         SetupDB sdb = new SetupDB();
         ScriptHelper sh = new ScriptHelper();
         boolean usersExists = sh.checkTableExists("USERS");
@@ -48,6 +51,7 @@ public class GameTest {
     
     @Test
     public void testChangeBalance(){
+        System.out.println("Testing change balance");
         User.userBalance = 0;
         User.changeBalance(-10);
         int expectedResult = 0;
@@ -56,6 +60,7 @@ public class GameTest {
     
     @Test
     public void testCheckMaxQuestions(){
+        System.out.println("Testing max questions");
         Questions questions = new Questions();
         ScriptHelper sh = new ScriptHelper();
         boolean expectedResult = true;
@@ -65,6 +70,7 @@ public class GameTest {
     
     @Test
     public void testCheckBalance(){
+        System.out.println("Testing check balance for Game Mode buy-ins");
         LevelTwo lvlTwo = new LevelTwo();
         User.userBalance = 100;
         int buyIn = lvlTwo.getBuyIn();
@@ -75,10 +81,11 @@ public class GameTest {
     
     @Test
     public void testResetBalance(){
+        System.out.println("Testing reset balance");
         User.userBalance = 1000;
         User.resetBalance();
         int expectedResult = 0;
-         assertEquals(expectedResult, User.userBalance);
+        assertEquals(expectedResult, User.userBalance);
         
     }
 }

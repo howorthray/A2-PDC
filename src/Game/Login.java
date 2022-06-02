@@ -305,10 +305,15 @@ public class Login extends javax.swing.JFrame {
             }
             else{
                 //if username doesn't exist, inserts user into database
-                statement.executeUpdate("INSERT INTO USERS VALUES ('" + registerUsernameField.getText() + "', '" + registerPasswordField.getText() + "', 0)");
-                JOptionPane.showMessageDialog(null, "User has been created!");
-                registerPanel.setVisible(false);
-                loginPanel.setVisible(true);
+                if(registerUsernameField.getText().equals("") || registerPasswordField.getText().equals("")){
+                    JOptionPane.showMessageDialog(null, "Cannot create account without username and/or password.");
+                }
+                else{
+                    statement.executeUpdate("INSERT INTO USERS VALUES ('" + registerUsernameField.getText() + "', '" + registerPasswordField.getText() + "', 0)");
+                    JOptionPane.showMessageDialog(null, "User has been created!");
+                    registerPanel.setVisible(false);
+                    loginPanel.setVisible(true);
+                }
             }
         }
         catch(Exception e){
