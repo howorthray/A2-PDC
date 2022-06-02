@@ -22,13 +22,14 @@ public class GameTest {
     
     @Before
     public void setUp() {
-        SetupDB u = new SetupDB();
+        SetupDB sdb = new SetupDB();
     }
     
     @After
     public void tearDown() {
     }
-
+    
+    //Test case for making sure the Questions table is created corrected in the DB
     @Test
     public void testQuestionsTableCreation(){
         System.out.println("Testing questions table creation");
@@ -39,6 +40,7 @@ public class GameTest {
         assertEquals(expectedResult, questionsExists);
     }
     
+    //Test case for making sure the Users table is created corrected in the DB
     @Test
     public void testUsersTableCreation(){
         System.out.println("Testing users table creation");
@@ -49,6 +51,7 @@ public class GameTest {
         assertEquals(expectedResult, usersExists);
     }
     
+    //Test case for ensuring a users balance does not go below 0
     @Test
     public void testChangeBalance(){
         System.out.println("Testing change balance");
@@ -58,6 +61,7 @@ public class GameTest {
         assertEquals(expectedResult, User.userBalance);
     }
     
+    //Test case for ensuring there are no duplicate questions in the datebase when game is run again
     @Test
     public void testCheckMaxQuestions(){
         System.out.println("Testing max questions");
@@ -68,6 +72,7 @@ public class GameTest {
         assertEquals(expectedResult, checkMax);
     }
     
+    //Test case for making sure that user cannot play a Game Mode if they do not have the balance to do so
     @Test
     public void testCheckBalance(){
         System.out.println("Testing check balance for Game Mode buy-ins");
@@ -79,6 +84,8 @@ public class GameTest {
         assertEquals(expectedResult, checkBalance);
     }
     
+    //Test case that ensures that the users balance is reset correctly
+    //This resets the current users balance when users logout/exit
     @Test
     public void testResetBalance(){
         System.out.println("Testing reset balance");

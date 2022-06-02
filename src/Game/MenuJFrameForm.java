@@ -1,8 +1,8 @@
 package Game;
 
-public class Menu extends javax.swing.JFrame {
+public class MenuJFrameForm extends javax.swing.JFrame {
 
-    public Menu() {
+    public MenuJFrameForm() {
         initComponents();
     }
 
@@ -18,7 +18,6 @@ public class Menu extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 0, 0));
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        setMaximumSize(new java.awt.Dimension(500, 421));
         setMinimumSize(new java.awt.Dimension(500, 421));
 
         StartGameButton.setBackground(new java.awt.Color(204, 204, 204));
@@ -84,7 +83,7 @@ public class Menu extends javax.swing.JFrame {
     private void StartGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_StartGameButtonActionPerformed
         //goes to a login page if user selects start game
         this.setVisible(false);
-        Login login = new Login();
+        LoginJFrameForm login = new LoginJFrameForm();
         login.setVisible(true);
         login.setLocationRelativeTo(null);
     }//GEN-LAST:event_StartGameButtonActionPerformed
@@ -97,7 +96,7 @@ public class Menu extends javax.swing.JFrame {
     private void HelpButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_HelpButtonActionPerformed
         //if help button is selected, opens help/info JFrame form
         this.setVisible(false);
-        Help help = new Help();
+        HelpJFrameForm help = new HelpJFrameForm();
         help.setVisible(true);
         help.setLocationRelativeTo(null);
     }//GEN-LAST:event_HelpButtonActionPerformed

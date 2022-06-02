@@ -3,12 +3,12 @@ package Game;
 
 import javax.swing.JOptionPane;
 
-public class Game extends javax.swing.JFrame {
+public class GameJFrameForm extends javax.swing.JFrame {
     
     String answer;
     public boolean correct = true;
   
-    public Game() {
+    public GameJFrameForm() {
         initComponents();
     }
 
@@ -43,7 +43,7 @@ public class Game extends javax.swing.JFrame {
     
     //Checks the option that the user inputs and returns if its correct or not
     public boolean checkAnswer(String input){
-        boolean correct = false;
+        correct = false;
         if(this.answer.equalsIgnoreCase(input)){
             correct = true;
         }
@@ -181,7 +181,7 @@ public class Game extends javax.swing.JFrame {
             correct = false;
             JOptionPane.showMessageDialog(null, "Wrong answer!");
             this.setVisible(false);
-            SelectGameMode gameModes = new SelectGameMode();
+            SelectGameModeJFrameForm gameModes = new SelectGameModeJFrameForm();
                 
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
@@ -204,7 +204,7 @@ public class Game extends javax.swing.JFrame {
             correct = false;
             JOptionPane.showMessageDialog(null, "Wrong answer!");
             this.setVisible(false);
-            SelectGameMode gameModes = new SelectGameMode();
+            SelectGameModeJFrameForm gameModes = new SelectGameModeJFrameForm();
                 
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
@@ -226,7 +226,7 @@ public class Game extends javax.swing.JFrame {
             correct = false;
             JOptionPane.showMessageDialog(null, "Wrong answer!");
             this.setVisible(false);
-            SelectGameMode gameModes = new SelectGameMode();
+            SelectGameModeJFrameForm gameModes = new SelectGameModeJFrameForm();
                 
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
@@ -249,7 +249,7 @@ public class Game extends javax.swing.JFrame {
             
             JOptionPane.showMessageDialog(null, "Wrong answer!");
             this.setVisible(false);
-            SelectGameMode gameModes = new SelectGameMode();
+            SelectGameModeJFrameForm gameModes = new SelectGameModeJFrameForm();
                 
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
@@ -266,7 +266,7 @@ public class Game extends javax.swing.JFrame {
 
     //Button for quitting current game, sends back to Game Select menu
     private void quitGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitGameButtonActionPerformed
-        SelectGameMode sgm = new SelectGameMode();
+        SelectGameModeJFrameForm sgm = new SelectGameModeJFrameForm();
         this.setVisible(false);
         sgm.setVisible(true);
         sgm.setLocationRelativeTo(null);

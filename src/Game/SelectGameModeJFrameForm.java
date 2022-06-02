@@ -3,9 +3,9 @@ package Game;
 
 import javax.swing.JOptionPane;
 
-public class SelectGameMode extends javax.swing.JFrame {
+public class SelectGameModeJFrameForm extends javax.swing.JFrame {
 
-    public SelectGameMode() {
+    public SelectGameModeJFrameForm() {
         initComponents();
         newInitComponents();
     }
@@ -51,7 +51,7 @@ public class SelectGameMode extends javax.swing.JFrame {
         });
 
         levelThreeButton.setBackground(new java.awt.Color(255, 255, 153));
-        levelThreeButton.setText("<html>   Level 3<br />Buy in: $30,000 <br /> Reward: $10,000</html>");
+        levelThreeButton.setText("<html>   Level 3<br />Buy in: $30,000 <br /> Reward: $100,000</html>");
         levelThreeButton.setMinimumSize(new java.awt.Dimension(124, 85));
         levelThreeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -200,7 +200,7 @@ public class SelectGameMode extends javax.swing.JFrame {
         //Resets static variable balance back to 0
         User.resetBalance();
         //returns back to menu
-        Menu menu = new Menu();
+        MenuJFrameForm menu = new MenuJFrameForm();
         this.setVisible(false);
         menu.setVisible(true);
         menu.setLocationRelativeTo(null);

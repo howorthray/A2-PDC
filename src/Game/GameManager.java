@@ -12,7 +12,7 @@ public class GameManager {
     int questionCount = 0;
     ArrayList<Integer> idArray;
     String possibleAnswer;
-    Game game;
+    GameJFrameForm game;
 
     
     public GameManager(GameMode gm){
@@ -26,7 +26,7 @@ public class GameManager {
     public void playGame(int numQuestions){
         
         if(GameHelper.count < GameHelper.numGames){
-             Game game = new Game();
+             GameJFrameForm game = new GameJFrameForm();
              
              //setting all the question button text appropiately
              game.setQuestion(getQuestion());
@@ -51,7 +51,7 @@ public class GameManager {
             //updates balance in database for current user
             User.setBalanceDB();
             GameHelper.resetCount();
-            SelectGameMode gameModes = new SelectGameMode();
+            SelectGameModeJFrameForm gameModes = new SelectGameModeJFrameForm();
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
             
@@ -152,7 +152,7 @@ public class GameManager {
     
     
     public void startGame(){
-             Game game = new Game();
+             GameJFrameForm game = new GameJFrameForm();
              
              game.setQuestion(getQuestion());
              game.setOptA(getOptA());

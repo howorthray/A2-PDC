@@ -9,7 +9,7 @@ public class QuizMain {
         //Populates questions
         Questions questions = new Questions();
         //Opens menu
-        Menu m = new Menu();
+        MenuJFrameForm m = new MenuJFrameForm();
         m.setVisible(true);
         m.setLocationRelativeTo(null);
     }    
