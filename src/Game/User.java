@@ -27,8 +27,7 @@ public class User {
     
     static void setBalanceDB(){
         ScriptHelper sh = new  ScriptHelper();
-        sh.executeScript("UPDATE USERS SET BALANCE = " + userBalance + " WHERE USER = '" + currentUser + "'");
-        sh.closeConnection();
+        sh.executeScript("UPDATE USERS SET BALANCE = " + userBalance + " WHERE USERNAME = '" + currentUser + "'");
     }
     
     static void setCurrentUser(String user){

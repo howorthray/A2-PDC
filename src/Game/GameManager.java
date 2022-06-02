@@ -18,8 +18,8 @@ public class GameManager {
 
     
     public GameManager(GameMode gm){
-         this.gm = gm;
-         idArray = this.gm.getQuestionId();
+        this.gm = gm;
+        idArray = this.gm.getQuestionId();
         playGame(gm.numQuestions());
     }
     
