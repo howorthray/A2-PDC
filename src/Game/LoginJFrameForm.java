@@ -6,9 +6,9 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-public class Login extends javax.swing.JFrame {
+public class LoginJFrameForm extends javax.swing.JFrame {
 
-    public Login() {
+    public LoginJFrameForm() {
         initComponents();
     }
     
@@ -37,7 +37,6 @@ public class Login extends javax.swing.JFrame {
         registerBackButton = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setMaximumSize(new java.awt.Dimension(400, 369));
         setMinimumSize(new java.awt.Dimension(400, 369));
 
         backgroundPanel.setLayout(new java.awt.CardLayout());
@@ -230,7 +229,7 @@ public class Login extends javax.swing.JFrame {
 
     private void backButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backButtonActionPerformed
         this.setVisible(false);
-        Menu menu = new Menu();
+        MenuJFrameForm menu = new MenuJFrameForm();
         menu.setVisible(true);
         menu.setLocationRelativeTo(null);
     }//GEN-LAST:event_backButtonActionPerformed
@@ -260,7 +259,7 @@ public class Login extends javax.swing.JFrame {
                 User.changeBalance(balance);
                 
                 this.setVisible(false);
-                SelectGameMode gameModes = new SelectGameMode();
+                SelectGameModeJFrameForm gameModes = new SelectGameModeJFrameForm();
                 
                 gameModes.setVisible(true);
                 gameModes.setLocationRelativeTo(null);

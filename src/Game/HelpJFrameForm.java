@@ -1,11 +1,11 @@
 package Game;
 
-public class Help extends javax.swing.JFrame {
+public class HelpJFrameForm extends javax.swing.JFrame {
 
     /**
      * Creates new form Help
      */
-    public Help() {
+    public HelpJFrameForm() {
         initComponents();
         newInitComponents();
     }
@@ -81,16 +81,12 @@ public class Help extends javax.swing.JFrame {
     private void backToMenuButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backToMenuButtonActionPerformed
         //Returns back to menu if button is selected
         this.setVisible(false);
-        Menu menu = new Menu();
+        MenuJFrameForm menu = new MenuJFrameForm();
         menu.setVisible(true);
         menu.setLocationRelativeTo(null);
     }//GEN-LAST:event_backToMenuButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backToMenuButton;
     private javax.swing.JTextArea gameInfoText;

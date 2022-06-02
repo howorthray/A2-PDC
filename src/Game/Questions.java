@@ -7,7 +7,7 @@ import java.io.IOException;
 
 public class Questions {
     
-    ScriptHelper scriptHelper;
+   ScriptHelper scriptHelper;
    private final String QuestionsFileName = "./resources/QuizQuestions.txt";
    private BufferedReader br = null;
    private FileReader fr = null;

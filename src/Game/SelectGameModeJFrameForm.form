@@ -117,7 +117,7 @@
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
           <Color blue="99" green="ff" red="ff" type="rgb"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="&lt;html&gt;   Level 3&lt;br /&gt;Buy in: $30,000 &lt;br /&gt; Reward: $10,000&lt;/html&gt;"/>
+        <Property name="text" type="java.lang.String" value="&lt;html&gt;   Level 3&lt;br /&gt;Buy in: $30,000 &lt;br /&gt; Reward: $100,000&lt;/html&gt;"/>
         <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
           <Dimension value="[124, 85]"/>
         </Property>
