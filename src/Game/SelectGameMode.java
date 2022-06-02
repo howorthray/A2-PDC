@@ -10,7 +10,7 @@ public class SelectGameMode extends javax.swing.JFrame {
         newInitComponents();
     }
     
-    //A initializer that overrides the deafualt values 
+    //A initializer that overrides the default values 
     private void newInitComponents(){
         usernameLabel.setText("User: " + User.currentUser);
         balanceLabel.setText("Balance: $" + User.userBalance);
@@ -132,7 +132,8 @@ public class SelectGameMode extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Starts a level one game if button is selected
     private void levelOneButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelOneButtonActionPerformed
         this.setVisible(false);
         LevelOne lvlOne = new LevelOne();
@@ -142,7 +143,9 @@ public class SelectGameMode extends javax.swing.JFrame {
 
     }//GEN-LAST:event_levelOneButtonActionPerformed
 
+    //Starts level two game if button is selected
     private void LevelTwoButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_LevelTwoButtonActionPerformed
+        //only starts game if user has enough money
         if(User.checkBalance(1000)){
             this.setVisible(false);
             LevelTwo lvlTwo = new LevelTwo();
@@ -157,7 +160,9 @@ public class SelectGameMode extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_LevelTwoButtonActionPerformed
 
+     //Starts level four/elite game if button is selected
     private void levelFourButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelFourButtonActionPerformed
+        //only starts game if user has enough money
         if(User.checkBalance(100000)){
             this.setVisible(false);
             LevelElite lvlElite = new LevelElite();
@@ -172,7 +177,9 @@ public class SelectGameMode extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_levelFourButtonActionPerformed
 
+    //Starts level three game if button is selected
     private void levelThreeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_levelThreeButtonActionPerformed
+        //only starts game if user has enough money
         if(User.checkBalance(30000)){
             this.setVisible(false);
             LevelThree lvlThree = new LevelThree();
@@ -187,47 +194,17 @@ public class SelectGameMode extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_levelThreeButtonActionPerformed
 
+    //logs out user and returns back to menu if button is selected
     private void logOutButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logOutButtonActionPerformed
+        //Resets static variable balance back to 0
         User.resetBalance();
+        //returns back to menu
         Menu menu = new Menu();
         this.setVisible(false);
         menu.setVisible(true);
         menu.setLocationRelativeTo(null);
     }//GEN-LAST:event_logOutButtonActionPerformed
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(SelectGameMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(SelectGameMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(SelectGameMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(SelectGameMode.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                SelectGameMode sgm = new SelectGameMode();
-                sgm.setVisible(true);
-                sgm.setLocationRelativeTo(null);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton LevelTwoButton;

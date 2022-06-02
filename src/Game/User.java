@@ -12,6 +12,7 @@ public class User {
     static int getBalance(){
         ScriptHelper sh = new  ScriptHelper();
         int balance = 0;
+        //Gets users current balance from DB
         ResultSet rs = sh.balanceQuery(currentUser);
         try {
             while(rs.next()){

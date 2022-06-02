@@ -3,8 +3,6 @@ package Game;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
 public class GameManager {
@@ -30,6 +28,7 @@ public class GameManager {
         if(GameHelper.count < GameHelper.numGames){
              Game game = new Game();
              
+             //setting all the question button text appropiately
              game.setQuestion(getQuestion());
              game.setOptA(getOptA());
              game.setOptB(getOptB());
@@ -44,8 +43,12 @@ public class GameManager {
 
         }
         else{
-            JOptionPane.showMessageDialog(null, "Good job! You won " + GameHelper.gameMode.getReward());
+            //instance when user gets all the questions right
+            JOptionPane.showMessageDialog(null, "Good job! You won $" + GameHelper.gameMode.getReward());
+            
+            //updates current balance
             User.changeBalance(GameHelper.gameMode.getReward());
+            //updates balance in database for current user
             User.setBalanceDB();
             GameHelper.resetCount();
             SelectGameMode gameModes = new SelectGameMode();
@@ -59,7 +62,7 @@ public class GameManager {
     public String getQuestion(){
         String question = "";
         int questionId = idArray.get(questionCount);
-        ResultSet rs = sh.testExecuteQuery(questionId);
+        ResultSet rs = sh.executeQuestionQuery(questionId);
         try {
             while(rs.next()){
                 question = rs.getString("QUESTION");
@@ -76,7 +79,7 @@ public class GameManager {
     public String getOptA(){
         String optA = "";
         int questionId = idArray.get(questionCount);
-        ResultSet rs = sh.testExecuteQuery(questionId);
+        ResultSet rs = sh.executeQuestionQuery(questionId);
         try {
             while(rs.next()){
                 optA = rs.getString("OPT_A");
@@ -91,7 +94,7 @@ public class GameManager {
     public String getOptB(){
         String optB = "";
         int questionId = idArray.get(questionCount);
-        ResultSet rs = sh.testExecuteQuery(questionId);
+        ResultSet rs = sh.executeQuestionQuery(questionId);
         try {
             while(rs.next()){
                 optB = rs.getString("OPT_B");
@@ -106,7 +109,7 @@ public class GameManager {
     public String getOptC(){
         String optC = "";
         int questionId = idArray.get(questionCount);
-        ResultSet rs = sh.testExecuteQuery(questionId);
+        ResultSet rs = sh.executeQuestionQuery(questionId);
         try {
             while(rs.next()){
                 optC = rs.getString("OPT_C");
@@ -121,7 +124,7 @@ public class GameManager {
     public String getOptD(){
         String optD = "";
         int questionId = idArray.get(questionCount);
-        ResultSet rs = sh.testExecuteQuery(questionId);
+        ResultSet rs = sh.executeQuestionQuery(questionId);
         try {
             while(rs.next()){
                 optD = rs.getString("OPT_D");
@@ -136,7 +139,7 @@ public class GameManager {
     public String getAnswer(){
         String answer = "";
         int questionId = idArray.get(questionCount);
-        ResultSet rs = sh.testExecuteQuery(questionId);
+        ResultSet rs = sh.executeQuestionQuery(questionId);
         try {
             while(rs.next()){
                 answer = rs.getString("ANSWER");
@@ -161,7 +164,4 @@ public class GameManager {
              game.setLocationRelativeTo(null);
         }
 
-//    public boolean checkCorrect(){//???????????
-//        return false;
-//    }
 }

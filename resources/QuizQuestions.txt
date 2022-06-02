@@ -11,7 +11,7 @@
 (11, 'In which city can you find the Liberty Bell?', 'Washington, D.C.', 'Boston', 'Philadelphia', 'Manhattan', 'Philadelphia')
 (12, 'In Pirates of the Caribbean, what was Captain Jack Sparrows ships name?', 'The Marauder', 'The Black Pearl', 'The Black Python', 'The Slytherin', 'The Black Pearl')
 (13, 'According to Forrest Gump, “life was like…”', 'A bag of lemons', 'A handful of roses', 'A lollipop', 'A box of chocolates', 'A box of chocolates')
-(14, 'Linda and Bob from Bobs Burgers have 3 kids. Which one of these characters is not one of them?', 'Louise', 'Gene', 'Jimmy', 'Tina', 'Jimmy')
+(14, 'Linda and Bob from Bobs Burgers have 3 kids. Which one of these is not one of them?', 'Louise', 'Gene', 'Jimmy', 'Tina', 'Jimmy')
 (15, 'The British band One Direction was made up of Harry, Louis, Niall, Zayn, and…', 'Paul', 'Callum', 'Kevin', 'Liam', 'Liam')
 (16, 'What is the rarest blood type?', 'O', 'A', 'B', 'AB-Negative', 'AB-Negative')
 (17, 'Holly Golightly is a character in which film?', 'Breakfast at Tiffanys', 'Pretty In Pink', 'Funny Face', 'Singing In The Rain', 'Breakfast at Tiffanys')

@@ -18,10 +18,6 @@ public final class DBManager {
         establishConnection();
     }
 
-    public static void main(String[] args) {
-        DBManager dbManager = new DBManager();
-        System.out.println(dbManager.getConnection());
-    }
     
     public Connection getConnection() {
         return this.conn;
@@ -32,7 +28,6 @@ public final class DBManager {
         if (this.conn == null) {
             try {
                 conn = DriverManager.getConnection(URL, USER_NAME, PASSWORD);
-                System.out.println(URL + " Connected Successfully ....");
             } catch (SQLException ex) {
                 System.out.println(ex.getMessage());
                 ex.printStackTrace();

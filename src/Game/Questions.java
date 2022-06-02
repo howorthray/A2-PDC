@@ -15,6 +15,7 @@ public class Questions {
    public Questions(){
 
         scriptHelper = new ScriptHelper();
+        //Checks if there is already the max number of questions to avoid duplicates
         if(!scriptHelper.checkMaxQuestions()){
             this.readTextFile();
         }

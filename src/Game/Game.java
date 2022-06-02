@@ -12,6 +12,7 @@ public class Game extends javax.swing.JFrame {
         initComponents();
     }
 
+    //Setting question options and answer for each game 
     public void setOptA(String questionOptA){
         optionA.setText(questionOptA);
     }
@@ -171,9 +172,11 @@ public class Game extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    //Checks if selected button is equal to answer
     private void optionAActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionAActionPerformed
         String input = optionA.getText();
+        //If selected answer is wrong, displays appropiate message and goes back to GameMode menu
         if(!checkAnswer(input)){
             correct = false;
             JOptionPane.showMessageDialog(null, "Wrong answer!");
@@ -182,19 +185,21 @@ public class Game extends javax.swing.JFrame {
                 
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
-            System.out.println("Wrong Answer");
+            //Resets question count back to 0
             GameHelper.resetCount();
         }
         else{
-            System.out.println("Correct Answer");
+            //Correct answer case, continues game
             this.setVisible(false);
             GameManager gm = new GameManager(GameHelper.gameMode);
 
         }
     }//GEN-LAST:event_optionAActionPerformed
-
+    
+    //Checks if selected button is equal to answer
     private void optionBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionBActionPerformed
         String input = optionB.getText();
+        //If selected answer is wrong, displays appropiate message and goes back to GameMode menu
         if(!checkAnswer(input)){
             correct = false;
             JOptionPane.showMessageDialog(null, "Wrong answer!");
@@ -203,18 +208,20 @@ public class Game extends javax.swing.JFrame {
                 
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
-            System.out.println("Wrong Answer");
+            //Resets question count back to 0
             GameHelper.resetCount();
         }
         else{
-            System.out.println("Correct Answer");
+            //Correct answer case, continues game
             this.setVisible(false);
             GameManager gm = new GameManager(GameHelper.gameMode);
         }
     }//GEN-LAST:event_optionBActionPerformed
-
+    
+    //Checks if selected button is equal to answer
     private void optionCActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionCActionPerformed
         String input = optionC.getText();
+        //If selected answer is wrong, displays appropiate message and goes back to GameMode menu
         if(!checkAnswer(input)){
             correct = false;
             JOptionPane.showMessageDialog(null, "Wrong answer!");
@@ -223,18 +230,20 @@ public class Game extends javax.swing.JFrame {
                 
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
-            System.out.println("Wrong Answer");
+            //Resets question count back to 0
             GameHelper.resetCount();
         }
         else{
-            System.out.println("Correct Answer");
+            //Correct answer case, continues game
             this.setVisible(false);
             GameManager gm = new GameManager(GameHelper.gameMode);
         }
     }//GEN-LAST:event_optionCActionPerformed
 
+    //Checks if selected button is equal to answer
     private void optionDActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_optionDActionPerformed
         String input = optionD.getText();
+        //If selected answer is wrong, displays appropiate message and goes back to GameMode menu
         if(!checkAnswer(input)){
             correct = false;
             
@@ -244,53 +253,26 @@ public class Game extends javax.swing.JFrame {
                 
             gameModes.setVisible(true);
             gameModes.setLocationRelativeTo(null);
-            System.out.println("Wrong Answer");
+            //Resets question count back to 0
             GameHelper.resetCount();
         }
         else{
-            System.out.println("Correct Answer");
+            //Correct answer case, continues game
             this.setVisible(false);
             GameManager gm = new GameManager(GameHelper.gameMode);
 
         }
     }//GEN-LAST:event_optionDActionPerformed
 
+    //Button for quitting current game, sends back to Game Select menu
     private void quitGameButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_quitGameButtonActionPerformed
         SelectGameMode sgm = new SelectGameMode();
         this.setVisible(false);
         sgm.setVisible(true);
         sgm.setLocationRelativeTo(null);
-       GameHelper.resetCount();
+        GameHelper.resetCount();
     }//GEN-LAST:event_quitGameButtonActionPerformed
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Game.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Game.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Game.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Game.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel Progress;

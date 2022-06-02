@@ -5,7 +5,6 @@ public class SetupDB {
     ScriptHelper scriptHelper;
 
     public SetupDB() {
-
         scriptHelper = new ScriptHelper();
         addTables();
     }

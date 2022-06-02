@@ -244,15 +244,19 @@ public class Login extends javax.swing.JFrame {
         Statement statement = null;
         String DBQ = "";
         try {
+            //connects to embedded database
             conn = DriverManager.getConnection("jdbc:derby:QuizGameDB_Edb; create=true", "pdc", "pdc");
             statement = conn.createStatement();
+            //grabs result set for user that user has input
             DBQ = "SELECT * FROM USERS WHERE USERNAME='" + usernameField.getText() + "' AND PASSWORD='" + passwordField.getText() + "'";
             ResultSet rs = statement.executeQuery(DBQ);
             if(rs.next()){
+                //if user exists and password is correct, displays appropiate message
                 JOptionPane.showMessageDialog(null, "Successful login.");
-                
+                //sets static current user and retrieves balance
                 User.setCurrentUser(usernameField.getText());
                 int balance = rs.getInt("BALANCE");
+                //sets balance
                 User.changeBalance(balance);
                 
                 this.setVisible(false);
@@ -263,6 +267,7 @@ public class Login extends javax.swing.JFrame {
                 
             }
             else{
+                //if username or password is incorrect, message is displayed
                 JOptionPane.showMessageDialog(null, "Incorrect login credentials, please try again.");
             }
         } 
@@ -272,11 +277,12 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_loginButtonActionPerformed
 
+    //changes to register panel if user wishes to signup instead
     private void registerButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerButtonActionPerformed
         loginPanel.setVisible(false);
         registerPanel.setVisible(true);
     }//GEN-LAST:event_registerButtonActionPerformed
-
+    //back button to change to login panel so user can go back to login page if they wish
     private void registerBackButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBackButtonActionPerformed
         registerPanel.setVisible(false);
         loginPanel.setVisible(true);
@@ -287,8 +293,10 @@ public class Login extends javax.swing.JFrame {
         Statement statement = null;
         String query = "";
         try{
+            //connects to database
             conn = DriverManager.getConnection("jdbc:derby:QuizGameDB_Edb; create=true", "pdc", "pdc");
             statement = conn.createStatement();
+            //tries to retrieve if username exists
             query = "SELECT * FROM USERS WHERE USERNAME='" + registerUsernameField.getText() + "'";
             
             ResultSet rs = statement.executeQuery(query);
@@ -296,6 +304,7 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(null, "This username is taken, please try again.");
             }
             else{
+                //if username doesn't exist, inserts user into database
                 statement.executeUpdate("INSERT INTO USERS VALUES ('" + registerUsernameField.getText() + "', '" + registerPasswordField.getText() + "', 0)");
                 JOptionPane.showMessageDialog(null, "User has been created!");
                 registerPanel.setVisible(false);
@@ -307,39 +316,6 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_createAccountButtonActionPerformed
 
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                Login l = new Login();
-                l.setVisible(true);
-                l.setLocationRelativeTo(null);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backButton;

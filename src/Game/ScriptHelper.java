@@ -13,6 +13,7 @@ public class ScriptHelper {
     Connection conn;
     Statement statement;
     
+    //Helper class for executing database scripts
     public ScriptHelper(){
         database = new DBManager();
         conn = database.getConnection();
@@ -47,7 +48,6 @@ public class ScriptHelper {
 
             while (rs.next()) {
                 String table_name = rs.getString("TABLE_NAME");
-                System.out.println(table_name);
                 if (table_name.equalsIgnoreCase(tableName)) {
                     exists = true;
                 }
@@ -88,8 +88,8 @@ public class ScriptHelper {
         return false;
     }
     
-   //???????
-    public ResultSet testExecuteQuery(int query){
+    //Executes SQL query strictly for retrieving questions based on their ID
+    public ResultSet executeQuestionQuery(int query){
         Connection conn = null;
         Statement statement = null;
         String DBQ = "SELECT * FROM QUESTIONS WHERE QUESTION_ID = " + query;
