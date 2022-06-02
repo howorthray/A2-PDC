@@ -1,9 +1,6 @@
 package Game;
 
-/**
- *
- * @author User
- */
+//Lets the Game class know how many questions there are and how many have been answers
 public class GameHelper {
     
     static int count = 0;
@@ -25,5 +22,4 @@ public class GameHelper {
     static void resetCount(){
         count = 0;
     }
-    
 }

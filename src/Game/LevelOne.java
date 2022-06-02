@@ -1,16 +1,8 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
- */
 package Game;
 
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- *
- * @author elanm
- */
 public class LevelOne implements GameMode{
 
     public String name;
@@ -44,29 +36,8 @@ public class LevelOne implements GameMode{
     public int getReward() {
         return this.reward;
     }
-//    @Override
-//    public Integer[] getQuestionId() {
-//        Random rand = new Random();
-//        Integer[] numArray = new Integer[this.numQuestions];
-//        for (int i = 0; i < numArray.length; i++) {
-//            boolean run = true;
-//            while (run) {
-//                run = false;
-//                int x = rand.nextInt(10) + 1;
-//                for (int j = 0; j < i; j++) {
-//                    if (x == numArray[j]) {
-//                        run = true;
-//                        break;
-//                    }
-//                }
-//                if (!run) {
-//                    numArray[i] = x;
-//                }
-//            }
-//        }
-//        return numArray;
-//    }
     
+     //Gets a random Number base on how many questions are in the data base, then adds them to a ArrayList that size is set to the predetermined 
     @Override
     public ArrayList getQuestionId() {
         Random rand = new Random();
@@ -79,7 +50,6 @@ public class LevelOne implements GameMode{
                 list.add(randId);
             }
         }
-        
         return list;
     }
 }

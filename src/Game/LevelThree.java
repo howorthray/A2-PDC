@@ -3,10 +3,6 @@ package Game;
 import java.util.ArrayList;
 import java.util.Random;
 
-/**
- *
- * @author elanm
- */
 public class LevelThree implements GameMode{
 
    public String name;
@@ -40,29 +36,8 @@ public class LevelThree implements GameMode{
     public int getReward() {
         return this.reward;
     }
-    
-//    @Override
-//    public Integer[] getQuestionId() {
-//        Random rand = new Random();
-//        Integer[] numArray = new Integer[this.numQuestions];
-//        for (int i = 0; i < numArray.length; i++) {
-//            boolean run = true;
-//            while (run) {
-//                run = false;
-//                int x = rand.nextInt(75) + 1;
-//                for (int j = 0; j < i; j++) {
-//                    if (x == numArray[j]) {
-//                        run = true;
-//                        break;
-//                    }
-//                }
-//                if (!run) {
-//                    numArray[i] = x;
-//                }
-//            }
-//        }
-//        return numArray;
-//    }
+
+    //Gets a random Number base on how many questions are in the data base, then adds them to a ArrayList that size is set to the predetermined 
     @Override
     public ArrayList getQuestionId() {
         Random rand = new Random();

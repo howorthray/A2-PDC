@@ -1,4 +1,3 @@
-
 package Game;
 
 import java.sql.ResultSet;
@@ -8,11 +7,6 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 
-
-/**
- *
- * @author elanm
- */
 public class GameManager {
     
     GameMode gm;
@@ -24,15 +18,13 @@ public class GameManager {
 
     
     public GameManager(GameMode gm){
-//        this.questionCount = currentCount;
          this.gm = gm;
          idArray = this.gm.getQuestionId();
-//         game = new Game();
-//         this.getQuestion();
-//         game.setVisible(true);
         playGame(gm.numQuestions());
     }
     
+    //Checks if the user has answered all the questions. Then set the varibles for the questiosn, options and progress. Then increase the count of the number of questiosn answered.
+    //Else it closes the game window and shows a congratulatory message, updates the users balance, resets the count and then ones up a new select GameMode window 
     public void playGame(int numQuestions){
         
         if(GameHelper.count < GameHelper.numGames){
@@ -63,15 +55,14 @@ public class GameManager {
         }
     }
     
+    //gets the question form the database base of the idarray
     public String getQuestion(){
         String question = "";
         int questionId = idArray.get(questionCount);
-//        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
             while(rs.next()){
                 question = rs.getString("QUESTION");
-//                game.setQuestion(question);
                 return question;
             }
         }
@@ -81,10 +72,10 @@ public class GameManager {
         return question;
     }
     
+    //gets the option A form the database base of the idarray
     public String getOptA(){
         String optA = "";
         int questionId = idArray.get(questionCount);
-//        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
             while(rs.next()){
@@ -93,14 +84,13 @@ public class GameManager {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-        //get question of idArray[questionCount]
         return optA;
     }
     
+    //gets the option B form the database base of the idarray
     public String getOptB(){
         String optB = "";
         int questionId = idArray.get(questionCount);
-//        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
             while(rs.next()){
@@ -112,10 +102,10 @@ public class GameManager {
         return optB;
     }
     
+    //gets the option C form the database base of the idarray
     public String getOptC(){
         String optC = "";
         int questionId = idArray.get(questionCount);
-//        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
             while(rs.next()){
@@ -127,10 +117,10 @@ public class GameManager {
         return optC;
     }
     
+    //gets the option D form the database base of the idarray
     public String getOptD(){
         String optD = "";
         int questionId = idArray.get(questionCount);
-//        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
             while(rs.next()){
@@ -142,10 +132,10 @@ public class GameManager {
         return optD;
     }
     
+    //gets the answer form the database base of the idarray
     public String getAnswer(){
         String answer = "";
         int questionId = idArray.get(questionCount);
-//        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.testExecuteQuery(questionId);
         try {
             while(rs.next()){
@@ -159,9 +149,6 @@ public class GameManager {
     
     
     public void startGame(){
-          
-//        while(correct && this.questionCount < idArray.length ){
-//             System.out.println("Game start: " + this.questionCount);
              Game game = new Game();
              
              game.setQuestion(getQuestion());
@@ -172,16 +159,9 @@ public class GameManager {
              game.setAnswer(getAnswer());
              game.setVisible(true);
              game.setLocationRelativeTo(null);
-             
-             
-//             this.questionCount ++;
-//            }
-//            correct = false;
         }
 
-    
-    
-    public boolean checkCorrect(){
-        return false;
-    }
+//    public boolean checkCorrect(){//???????????
+//        return false;
+//    }
 }

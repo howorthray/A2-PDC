@@ -6,12 +6,7 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import javax.swing.JOptionPane;
 
-/**
- *
- * @author User
- */
 public class ScriptHelper {
     
     DBManager database;
@@ -27,33 +22,22 @@ public class ScriptHelper {
         return this.conn;
     }
     
+    //executes a string that allows it to access the database
     public void executeScript(String input){
         try{
             statement = this.conn.createStatement();
             statement.executeUpdate(input);
-
         }
         catch(SQLException ex){
             ex.printStackTrace();
         }
     }
     
-//    public ResultSet executeQuery(String input){
-//        ResultSet rs = null;
-//        try{
-//            rs = this.statement.executeQuery(input);
-//        }
-//        catch(SQLException ex){
-//            ex.printStackTrace();
-//        }
-//        return rs;
-//    }
-    
-    
     public void closeConnection() {
         this.database.closeConnections();
     }
     
+    //Returns a boolean value on wether the table is in the database
     public boolean checkTableExists(String tableName) {
         boolean exists = false;
         try {
@@ -74,13 +58,8 @@ public class ScriptHelper {
         }
         return exists;
     }
-   
-//    public ResultSet getQuestion(int questionId){
-//        String query = "SELECT * FROM QUESTIONS WHERE QUESTION_ID = " + questionId;
-//        ResultSet rs = executeQuery(query);
-//        return rs;
-//    }
     
+    //returns a boolean value to check if the max number of questions have been added to the table 
    public boolean checkMaxQuestions(){
         boolean max = true;
         int counter = 0;
@@ -90,7 +69,6 @@ public class ScriptHelper {
         String DBQ = "SELECT * FROM QUESTIONS";
         ResultSet rs = null;
         try {
-//            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
             conn = DriverManager.getConnection("jdbc:derby:QuizGameDB_Edb; create=true", "pdc", "pdc");
             
             statement = conn.createStatement();
@@ -99,9 +77,7 @@ public class ScriptHelper {
             while(rs.next()){
                 counter++;
                 }
-            
-//            return rs;
-        } 
+            } 
         catch(Exception e){
             System.err.println(e);
             System.out.println(e.getMessage());
@@ -112,19 +88,16 @@ public class ScriptHelper {
         return false;
     }
     
+   //???????
     public ResultSet testExecuteQuery(int query){
         Connection conn = null;
         Statement statement = null;
         String DBQ = "SELECT * FROM QUESTIONS WHERE QUESTION_ID = " + query;
         ResultSet rs = null;
         try {
-//            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
             conn = DriverManager.getConnection("jdbc:derby:QuizGameDB_Edb; create=true", "pdc", "pdc");
-            
             statement = conn.createStatement();
-            
             rs = statement.executeQuery(DBQ);
-//            return rs;
         } 
         catch(Exception e){
             System.err.println(e);
@@ -133,6 +106,7 @@ public class ScriptHelper {
         return rs;
     }
     
+    //Excutes SQL function that returns the value of the USER table 
     public ResultSet balanceQuery(String user){
         Connection conn = null;
         Statement statement = null;
@@ -140,11 +114,8 @@ public class ScriptHelper {
         ResultSet rs = null;
         try {
             conn = DriverManager.getConnection("jdbc:derby:QuizGameDB_Edb; create=true", "pdc", "pdc");
-            
             statement = conn.createStatement();
-            
             rs = statement.executeQuery(DBQ);
-//            return rs;
         } 
         catch(Exception e){
             System.err.println(e);
@@ -152,5 +123,4 @@ public class ScriptHelper {
         }
         return rs;
     }
-    
 }

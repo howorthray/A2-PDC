@@ -6,19 +6,11 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 
-/**
- *
- * @author User
- */
 public class Login extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Login
-     */
     public Login() {
         initComponents();
     }
-
     
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
@@ -252,12 +244,9 @@ public class Login extends javax.swing.JFrame {
         Statement statement = null;
         String DBQ = "";
         try {
-//            Class.forName("org.apache.derby.jdbc.EmbeddedDriver");
             conn = DriverManager.getConnection("jdbc:derby:QuizGameDB_Edb; create=true", "pdc", "pdc");
-            
             statement = conn.createStatement();
             DBQ = "SELECT * FROM USERS WHERE USERNAME='" + usernameField.getText() + "' AND PASSWORD='" + passwordField.getText() + "'";
-            
             ResultSet rs = statement.executeQuery(DBQ);
             if(rs.next()){
                 JOptionPane.showMessageDialog(null, "Successful login.");
@@ -318,9 +307,6 @@ public class Login extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_createAccountButtonActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

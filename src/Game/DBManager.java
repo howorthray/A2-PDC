@@ -7,7 +7,6 @@ import java.sql.SQLException;
 public final class DBManager {
     
     //Main manager class for connecting to the database
-    //hghuvhfhdub
 
     private final String USER_NAME = "pdc";
     private final String PASSWORD = "pdc";
@@ -22,9 +21,8 @@ public final class DBManager {
     public static void main(String[] args) {
         DBManager dbManager = new DBManager();
         System.out.println(dbManager.getConnection());
-
     }
-
+    
     public Connection getConnection() {
         return this.conn;
     }
@@ -42,6 +40,7 @@ public final class DBManager {
         }
     }
 
+    //Closes the connections
     public void closeConnections() {
         if (conn != null) {
             try {
@@ -51,5 +50,4 @@ public final class DBManager {
             }
         }
     }
-
 }

@@ -1,4 +1,3 @@
-
 package Game;
 
 import java.io.BufferedReader;
@@ -6,12 +5,9 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 
-
-
 public class Questions {
     
-
-   ScriptHelper scriptHelper;
+    ScriptHelper scriptHelper;
    private final String QuestionsFileName = "./resources/QuizQuestions.txt";
    private BufferedReader br = null;
    private FileReader fr = null;
@@ -24,6 +20,7 @@ public class Questions {
         }
    }
    
+   //Reads the text file of the questions line by line and adds the values to the database
    public void readTextFile(){
        try {
            fr = new FileReader(QuestionsFileName);
@@ -46,9 +43,6 @@ public class Questions {
             }
         } 
    }
-   
-   
- 
 }
         
    

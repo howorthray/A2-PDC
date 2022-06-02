@@ -4,10 +4,6 @@ package Game;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-/**
- *
- * @author User
- */
 public class User {
     
     static String currentUser = "";
@@ -16,12 +12,10 @@ public class User {
     static int getBalance(){
         ScriptHelper sh = new  ScriptHelper();
         int balance = 0;
-//        ResultSet rs = sh.getQuestion(questionId);
         ResultSet rs = sh.balanceQuery(currentUser);
         try {
             while(rs.next()){
                 balance = rs.getInt("BALANCE");
-//                game.setQuestion(question);
                 return balance;
             }
         }
@@ -41,6 +35,7 @@ public class User {
         currentUser = user;
     }
     
+    //Changes the the users balance
     static void changeBalance(int money){
         userBalance += money;
         if(userBalance < 0){
@@ -48,6 +43,7 @@ public class User {
         }
     }
     
+    //Checks to see if the user has enough money to play a level mode
     static boolean checkBalance(int buyIn){
         if(userBalance >= buyIn){
             return true;

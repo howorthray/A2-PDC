@@ -1,10 +1,8 @@
 package Game;
 
-
 public class SetupDB {
 
     ScriptHelper scriptHelper;
-
 
     public SetupDB() {
 
@@ -12,6 +10,7 @@ public class SetupDB {
         addTables();
     }
     
+    //First checks if the database has USERS tables and a QUESTIONS table and then executes SQL statements to add them to the database
     public void addTables(){
 
         if(!scriptHelper.checkTableExists("USERS")){
@@ -22,5 +21,4 @@ public class SetupDB {
         }
         scriptHelper.closeConnection();
     }
-
 }
